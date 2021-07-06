@@ -18,10 +18,9 @@ def song_search(song_artist, song_title):
 
 
 def get_lyrics(track_id):    
-track_id = song['message']['body']['track_list'][0]['track']['track_id']
-lyrics_url = f'http://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey={key}&track_id={track_id}'
-lyrics = requests.get(lyrics_url)
-print(lyrics.status_code)
-lyrics_data = lyrics.json()
-lyrics_body = lyrics_data['message']['body']['lyrics']['lyrics_body']
-print(lyrics_body)
+    lyrics_url = f'http://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey={key}&track_id={track_id}'
+    lyrics = requests.get(lyrics_url)
+    lyrics_data = lyrics.json()
+    lyrics_body = lyrics_data['message']['body']['lyrics']['lyrics_body']
+    return (lyrics_body)
+
